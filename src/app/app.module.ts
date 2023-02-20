@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { DiceEffects } from './state/dice/dice.effects';
 import { diceReducer } from './state/dice/dice.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -18,7 +19,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     BrowserModule,
     StoreModule.forRoot({dice: diceReducer}),
     EffectsModule.forRoot([DiceEffects]),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() })
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

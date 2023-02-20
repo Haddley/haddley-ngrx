@@ -30,5 +30,9 @@ export class PostService {
   getPost(id: number): Observable<Post> {
     return this.http.get<Post>(`http://localhost:3000/posts/${id}`);
   }
+
+  patchPost(post: Post): Observable<Post> {
+    return this.http.patch<Post>(`http://localhost:3000/posts/${post.id}`, post);
+  }
   
 }
