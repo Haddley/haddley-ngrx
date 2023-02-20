@@ -8,6 +8,8 @@ import { DiceEffects } from './state/dice/dice.effects';
 import { diceReducer } from './state/dice/dice.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { HttpClientModule } from '@angular/common/http';
+import { postReducer } from './state/post/post.reducer';
+import { PostEffects } from './state/post/post.effect';
 
 
 
@@ -17,8 +19,8 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
-    StoreModule.forRoot({dice: diceReducer}),
-    EffectsModule.forRoot([DiceEffects]),
+    StoreModule.forRoot({dice: diceReducer, posts: postReducer}),
+    EffectsModule.forRoot([DiceEffects,PostEffects]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
     HttpClientModule
   ],
